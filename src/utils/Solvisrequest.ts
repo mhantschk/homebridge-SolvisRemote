@@ -27,7 +27,7 @@ export class Solvisrequest {
 
     return new Promise((resolve, reject) => {
       needle.get(
-          url: this.config['URL'],
+          url: this.config['url'],
           this.options,
          (error, response, body) => {
           if (error) {
@@ -35,7 +35,7 @@ export class Solvisrequest {
           } else {
             resolve(body);
           }
-        );
+        
     });
   }
 }  
