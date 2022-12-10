@@ -42,11 +42,11 @@ class SolvisRemote implements StaticPlatformPlugin {
     this.log = log;
 
     // probably parse config or something here
-    this.api.on('didFinishLaunching', () => {
+   
       log.debug('Executed didFinishLaunching callback');
 
       this.Token = this.getToken(true);
-    });
+  
     log.info("SolvisRemote platform finished initializing!");
     
   }
