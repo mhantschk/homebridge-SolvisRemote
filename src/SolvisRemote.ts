@@ -43,9 +43,9 @@ class SolvisRemote implements StaticPlatformPlugin {
 
     // probably parse config or something here
    
-      log.debug('Executed didFinishLaunching callback');
+    
 
-      this.Token = this.getToken(true);
+    //  this.Token = this.getToken(true);
   
     log.info("SolvisRemote platform finished initializing!");
     
