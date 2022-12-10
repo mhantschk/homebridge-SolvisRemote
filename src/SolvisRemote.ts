@@ -1,5 +1,6 @@
 import {AccessoryPlugin, API, HAP, Logging, PlatformConfig, StaticPlatformPlugin,} from "homebridge";
 import {ExampleSwitch} from "./switch-accessory";
+import { SolvisRequest } from './utils/Solvisrequest';
 
 const PLATFORM_NAME = "SolvisRemote";
 
@@ -41,8 +42,13 @@ class SolvisRemote implements StaticPlatformPlugin {
     this.log = log;
 
     // probably parse config or something here
+    this.api.on('didFinishLaunching', () => {
+      log.debug('Executed didFinishLaunching callback');
 
+      this.Token = this.getToken(true);
+    });
     log.info("SolvisRemote platform finished initializing!");
+    
   }
 
   /*
@@ -58,4 +64,27 @@ class SolvisRemote implements StaticPlatformPlugin {
     ]);
   }
 
+   getToken(start:boolean): string {
+   
+
+   
+      const SolvisRequest = new SolvisRequest(this.config, this.log);
+
+      SolvisRequest.Login().then((results)=> {
+
+        if (results!==undefined) {
+
+          this.log(results);
+
+                  } else {
+          this.log.error('Error login in!');
+        }
+
+      });
+    
+
+    return '';
+  }
+  
+  
 }
