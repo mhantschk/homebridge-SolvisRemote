@@ -36,9 +36,11 @@ export = (api: API) => {
 
 class SolvisRemote implements StaticPlatformPlugin {
 
-  private readonly log: Logging;
+ 
 
-  constructor(log: Logging, config: PlatformConfig, api: API) {
+  constructor(public readonly log: Logger,
+    public readonly config: PlatformConfig,
+    public readonly api: API,) {
     this.log = log;
 
     // probably parse config or something here
