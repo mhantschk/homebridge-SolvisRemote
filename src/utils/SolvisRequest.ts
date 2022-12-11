@@ -23,8 +23,8 @@ export class SolvisRequest {
     return new Promise((resolve, reject) => {
       request.get(
         
-          url: this.config['url'],
-          options:{
+          this.config['url'],
+          {
             username: this.config['username'],
             password: this.config['password'],
             auth: 'digest',
