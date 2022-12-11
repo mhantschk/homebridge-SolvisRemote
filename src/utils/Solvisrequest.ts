@@ -19,7 +19,7 @@ export class HttpRequest {
   }
 
   Login() {
-
+    this.log('Login call');
     return new Promise((resolve, reject) => {
       request(
         {
