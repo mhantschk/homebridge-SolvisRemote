@@ -2,7 +2,7 @@ const request = require('needle');
 
 import { PlatformConfig, Logger } from 'homebridge';
 
-export class HttpRequest {
+export class SolvisRequest {
 
   readonly urlLogin = 'http://cloud.linked-go.com:84/cloudservice/api/app/user/login.json';
   readonly urlDevicesList = 'http://cloud.linked-go.com:84/cloudservice/api/app/device/deviceList.json';
