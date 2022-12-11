@@ -30,12 +30,13 @@ export class SolvisRequest {
             parse: 'xml'
           },
          (error, response, body) => {
+           if (response.statusCode === 401) {
+            reject('NotLoggedIn');
+          }
           if (error) {
-            this.log('Login error: ' + response.statusCode);
             reject(error);
           } else {
             this.log('Erfolg: ' + response.statusCode);
-            //this.log(body);
             resolve(body);
           }
         });
