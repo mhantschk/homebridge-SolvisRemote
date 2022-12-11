@@ -22,7 +22,6 @@ export class SolvisRequest {
     this.log('Login call');
     return new Promise((resolve, reject) => {
       request.get(
-        
           this.config['url'],
           {
             username: this.config['username'],
@@ -32,6 +31,7 @@ export class SolvisRequest {
           },
          (error, response, body) => {
           if (error) {
+            this.log(error);
             reject(error);
           } else {
             resolve(body);
