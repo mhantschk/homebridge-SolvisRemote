@@ -2,7 +2,7 @@
   "name": "homebridge-SolvisRemote",
   "version": "1.0.0",
   "description": "An example static platform plugin for homebridge written in Typescript",
-  "main": "dist/index.js",
+  "main": "dist/SolvisRemote.js",
   "scripts": {
     "clean": "rimraf ./dist",
     "build": "rimraf ./dist && tsc",
