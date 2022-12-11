@@ -75,7 +75,7 @@ public Token = '';
       const solvisRequest = new SolvisRequest(this.config, this.log);
       solvisRequest.Login().then((results)=> {
         if (results!==undefined) {
-          this.log(results);
+          //this.log(results);
           this.log('Token erfolgreich');
                   } else {
           this.log.error('Error login in!');
