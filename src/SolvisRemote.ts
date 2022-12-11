@@ -49,7 +49,6 @@ public Token = '';
    
     this.api.on('didFinishLaunching', () => {
       log.debug('Executed didFinishLaunching callback');
-      log.debug(SolvisRequest);
       this.Token = this.getToken(true);
     });
   
@@ -71,25 +70,16 @@ public Token = '';
   }
 
    getToken(start:boolean): string {
-   
       this.log.debug('getToken');
-   
       const solvisRequest = new SolvisRequest(this.config, this.log);
-
       solvisRequest.Login().then((results)=> {
-
         if (results!==undefined) {
-
           this.log(results);
-
                   } else {
           this.log.error('Error login in!');
         }
-
       });
-    
-
     return '';
   }  
-  
+
 }
