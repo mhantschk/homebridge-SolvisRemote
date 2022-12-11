@@ -72,7 +72,7 @@ public Token = '';
 
    getToken(start:boolean): string {
    
-      log.debug('getToken');
+      this.log.debug('getToken');
    
       const SolvisRequest = new SolvisRequest(this.config, this.log);
 
