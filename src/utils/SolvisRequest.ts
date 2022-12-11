@@ -31,13 +31,11 @@ export class SolvisRequest {
           },
          (error, response, body) => {
           if (error) {
-            this.log(error);
-            this.log(response);
-            this.log(body);
+            this.log('Login error: ' + response.statusCode);
             reject(error);
           } else {
-            this.log(response);
-            this.log(body);
+            this.log('Erfolg: ' + response.statusCode);
+            //this.log(body);
             resolve(body);
           }
         });
