@@ -42,7 +42,30 @@ export class SolvisRequest {
         });
     });
   }
-
+getSolvisXML() {
+    this.log('getSolvisXML');
+    return new Promise((resolve, reject) => {
+      request.get(
+          this.config['url']+'/SC2_val.xml',
+          {
+            username: this.config['username'],
+            password: this.config['password'],
+            auth: 'digest',
+            parse: 'xml'
+          },
+         (error, response, body) => {
+           if (response.statusCode === 401) {
+            reject('NotLoggedIn');
+          }
+          if (error) {
+            reject(error);
+          } else {
+            //this.log('Erfolg: ' + response.statusCode);
+            resolve(body.children[0].value);
+          }
+        });
+    });
+  }
   GetDeviceList(token: string) {
     return new Promise((resolve, reject) => {
       request(
