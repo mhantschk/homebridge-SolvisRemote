@@ -1,0 +1,76 @@
+{
+  "pluginAlias": "SolvisRemote",
+  "pluginType": "platform",
+  "singular": true,
+  "schema": {
+    "type": "object",
+    "properties": {
+      "name": {
+        "title": "Name",
+        "type": "string",
+        "required": true,
+        "default": "Solvis Remote"
+      },
+      "UserName": {
+        "title": "Username",
+        "type": "string",
+        "required": true,
+        "default": ""
+      },
+      "Password": {
+        "title": "Password",
+        "type": "string",
+        "required": true,
+        "default": ""
+      },
+      "url": {
+        "title": "URL",
+        "type": "string",
+        "required": true,
+        "default": ""
+      },
+      "UpdateTime": {
+        "title": "Time in secondes between updates",
+        "type": "number",
+        "required": true,
+        "default": 60
+      } ,
+      "ViewWaterThermometer": {
+        "title": "Extra thermometer for water temperature",
+        "type": "boolean",
+        "required": false,
+        "default": false
+      },    
+      "ViewElectricPowerUsage": {
+        "title": "View electric power usage (only works in Eve app)",
+        "type": "boolean",
+        "required": false,
+        "default": false
+      },  
+      "PowerConsumptionLimit": {
+        "title": "Power consumption limit in watts when the heater is heating or not (also requiers view electric power usage)",
+        "type": "number",
+        "required": true,
+        "default": 0
+      },
+      "Debug": {
+        "title": "View debug messages",
+        "type": "boolean",
+        "required": true,
+        "default": false
+      },
+      "ClearAllAtStartUp": {
+        "title": "Remove all plugins during next start up (clean up)",
+        "type": "boolean",
+        "required": false,
+        "default": false
+      },
+      "EveLoging": {
+        "title": "Active Eve Loging",
+        "type": "boolean",
+        "required": false,
+        "default": false
+      }
+    }
+  }
+}
