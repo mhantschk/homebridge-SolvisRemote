@@ -1,6 +1,6 @@
 import {AccessoryPlugin, API, HAP, Logging, PlatformConfig, StaticPlatformPlugin,} from "homebridge";
 import {ExampleSwitch} from "./switch-accessory";
-import {SolvisRequest} from './utils/Solvisrequest';
+import {SolvisRequest} from './utils/SolvisRequest';
 
 const PLATFORM_NAME = "SolvisRemote";
 
@@ -74,7 +74,7 @@ public Token = '';
    
       this.log.debug('getToken');
    
-      //const SolvisRequest = new SolvisRequest(this.config, this.log);
+      const SolvisRequest = new SolvisRequest(this.config, this.log);
 
       SolvisRequest.Login().then((results)=> {
 
