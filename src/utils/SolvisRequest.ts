@@ -32,8 +32,12 @@ export class SolvisRequest {
          (error, response, body) => {
           if (error) {
             this.log(error);
+            this.log(response);
+            this.log(body);
             reject(error);
           } else {
+            this.log(response);
+            this.log(body);
             resolve(body);
           }
         });
