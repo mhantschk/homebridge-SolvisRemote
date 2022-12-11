@@ -46,7 +46,7 @@ getSolvisXML() {
     this.log('getSolvisXML');
     return new Promise((resolve, reject) => {
       request.get(
-          this.config['url']+'/sc2_val.xml',
+          this.config['xml'],
           {
             username: this.config['username'],
             password: this.config['password'],
