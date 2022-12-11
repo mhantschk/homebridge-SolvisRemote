@@ -54,9 +54,6 @@ getSolvisXML() {
             parse: 'xml'
           },
          (error, response, body) => {
-           if (response.statusCode === 401) {
-            reject('NotLoggedIn');
-          }
           if (error) {
             reject(error);
           } else {
