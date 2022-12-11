@@ -21,7 +21,7 @@ export class SolvisRequest {
   Login() {
     this.log('Login call');
     return new Promise((resolve, reject) => {
-      request(
+      request.get(
         {
           url: this.config['url'],
           options:{
