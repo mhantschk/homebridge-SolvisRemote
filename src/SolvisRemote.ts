@@ -74,7 +74,7 @@ public Token = '';
    
       this.log.debug('getToken');
    
-      const SolvisRequest = new SolvisRequest(this.config, this.log);
+      //const SolvisRequest = new SolvisRequest(this.config, this.log);
 
       SolvisRequest.Login().then((results)=> {
 
