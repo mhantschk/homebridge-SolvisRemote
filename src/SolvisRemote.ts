@@ -35,12 +35,14 @@ export = (api: API) => {
 };
 
 class SolvisRemote implements StaticPlatformPlugin {
-
+public Token = '';
  
 
-  constructor(public readonly log: Logger,
+  constructor(
+    public readonly log: Logger,
     public readonly config: PlatformConfig,
-    public readonly api: API,) {
+    public readonly api: API,
+    ) {
     this.log = log;
 
     // probably parse config or something here
@@ -48,7 +50,7 @@ class SolvisRemote implements StaticPlatformPlugin {
     this.api.on('didFinishLaunching', () => {
       log.debug('Executed didFinishLaunching callback');
       log.debug(SolvisRequest);
-      SolvisRequest.Login.bind(this);
+      this.Token = this.getToken(true);
     });
   
     log.info("SolvisRemote platform finished initializing!");
@@ -70,25 +72,24 @@ class SolvisRemote implements StaticPlatformPlugin {
 
    getToken(start:boolean): string {
    
-
+      log.debug('getToken');
    
-      //const SolvisRequest = new SolvisRequest(this.config, this.log);
+      const SolvisRequest = new SolvisRequest(this.config, this.log);
 
-      //SolvisRequest.Login().then((results)=> {
+      SolvisRequest.Login().then((results)=> {
 
-        //if (results!==undefined) {
+        if (results!==undefined) {
 
-          //this.log(results);
+          this.log(results);
 
-            //      } else {
-          //this.log.error('Error login in!');
-        //}
+                  } else {
+          this.log.error('Error login in!');
+        }
 
-      //});
+      });
     
 
-    //return '';
-  }
-  
+    return '';
+  }  
   
 }
