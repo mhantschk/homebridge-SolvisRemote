@@ -29,7 +29,7 @@ export class SolvisRequest {
             auth: 'digest',
             parse: 'xml'
           },
-         (error, response, body) => {
+         (error, headers, response, body) => {
            if (response.statusCode === 401) {
             reject('NotLoggedIn');
           }
@@ -48,9 +48,6 @@ getSolvisXML() {
       request.get(
           this.config['xml'],
           {
-            username: this.config['username'],
-            password: this.config['password'],
-            auth: 'digest',
             parse: 'xml'
           },
          (error, response, body) => {
