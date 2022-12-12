@@ -36,7 +36,7 @@ export class SolvisRequest {
           } else if (response.statusCode === 401) {
             reject('NotLoggedIn');
           } else {
-            this.log('Erfolg: ' + response.headers);
+            this.log('Erfolg: Login');
           }
         });
     });
