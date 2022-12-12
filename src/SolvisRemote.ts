@@ -49,12 +49,16 @@ public Token = '';
    
     this.api.on('didFinishLaunching', () => {
       log.debug('Executed didFinishLaunching callback');
-      this.Token = this.getToken(true);
+      //this.Token = this.getToken(true);
       this.Token = this.readXML(true);
     });
   
     log.info("SolvisRemote platform finished initializing!");
-    
+    setInterval(() => {
+      
+        this.readXML();
+      
+    }, (this.config['UpdateTime'] as number) * 1000);
   }
 
   /*
@@ -84,7 +88,7 @@ public Token = '';
     return '';
   }  
 
-  readXML(start:boolean): string {
+  readXML(): string {
       this.log.debug('readXML');
       const solvisRequest = new SolvisRequest(this.config, this.log);
       solvisRequest.getSolvisXML().then((results)=> {
