@@ -49,7 +49,7 @@ public Token = '';
    
     this.api.on('didFinishLaunching', () => {
       log.debug('Executed didFinishLaunching callback');
-      this.Token = this.getToken(true);
+      //this.Token = this.getToken(true);
       //this.Token = this.readXML(true);
     });
   
