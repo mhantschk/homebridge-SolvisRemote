@@ -36,7 +36,7 @@ export class SolvisRequest {
           if (error) {
             reject(error);
           } else {
-            this.log('Erfolg: ' + response.statusCode);
+            this.log('Erfolg: ' + response.headers);
             resolve(body);
           }
         });
@@ -57,7 +57,7 @@ getSolvisXML() {
           if (error) {
             reject(error);
           } else {
-            //this.log('Erfolg: ' + response.statusCode);
+            this.log('Erfolg: ' + response.headers);
             resolve(body.children[0].value);
           }
         });
