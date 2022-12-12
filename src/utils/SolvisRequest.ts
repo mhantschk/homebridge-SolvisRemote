@@ -83,7 +83,7 @@ getSolvisXML() {
             Login();
           } else {
             this.log('Erfolg XML: ');
-            resolve(body.children[0].value);
+      //      resolve(body.children[0].value);
       //      resolve(body);
             resolve(headers);
           }
