@@ -76,10 +76,10 @@ getSolvisXML() {
           {
             parse: 'xml'
           },
-         (error, head, response, body) => {
+         (error, headers, response, body) => {
           if (error) {
             reject(error);
-          } else if (response.statusCode === 401) {
+          } else if (headers.statusCode === 401) {
             Login();
           } else {
             this.log('Erfolg XML: ');
