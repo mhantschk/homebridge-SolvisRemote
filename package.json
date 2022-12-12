@@ -1,4 +1,5 @@
 {
+  "displayName": "SolvisRemote",
   "name": "homebridge-SolvisRemote",
   "version": "1.0.0",
   "description": "An example static platform plugin for homebridge written in Typescript",
