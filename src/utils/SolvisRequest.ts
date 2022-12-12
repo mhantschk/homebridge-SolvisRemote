@@ -37,6 +37,7 @@ export class SolvisRequest {
             reject('NotLoggedIn');
           } else {
             this.log('Erfolg: Login');
+            resolve(response);
           }
         });
     });
@@ -80,7 +81,15 @@ getSolvisXML() {
           if (error) {
             reject(error);
           } else if (headers.statusCode === 401) {
-            Login();
+            this.log('Not logged in --> Login');
+            this.Login().then((results)=> {
+        if (results!==undefined) {
+          this.log(results);
+          this.log('XML erfolgreich');
+                  } else {
+          this.log.error('Error login in!');
+        }
+      });
           } else {
             this.log('Erfolg XML: ');
       //      resolve(body.children[0].value);
