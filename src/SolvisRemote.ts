@@ -1,8 +1,8 @@
-import { AccessoryPlugin, API, HAP, Logging, PlatformConfig, StaticPlatformPlugin, Logger, PlatformAccessory, PlatformConfig, Service, Characteristic} from "homebridge";
-import { ExampleSwitch } from "./switch-accessory";
+import { AccessoryPlugin, API, HAP, Logging, PlatformConfig, StaticPlatformPlugin, Logger, PlatformAccessory, PlatformConfig, Service, Characteristic} from 'homebridge';
+import { ExampleSwitch } from './switch-accessory';
 import { SolvisRequest } from './utils/SolvisRequest';
 
-const PLATFORM_NAME = "SolvisRemote";
+const PLATFORM_NAME = 'SolvisRemote';
 
 /*
  * IMPORTANT NOTICE
