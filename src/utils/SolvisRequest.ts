@@ -18,30 +18,56 @@ export class SolvisRequest {
     return {};
   }
 
+  
   Login() {
     this.log('Login call');
     return new Promise((resolve, reject) => {
       request.get(
           this.config['url'],
-          {
+        {
             username: this.config['username'],
             password: this.config['password'],
             auth: 'digest',
             parse: 'xml'
           },
-         (error, headers, response, body) => {
-           if (response.statusCode === 401) {
-            reject('NotLoggedIn');
-          }
+         (error, headers, response, body) => {         
           if (error) {
             reject(error);
+          } else if (response.statusCode === 401) {
+            reject('NotLoggedIn');
           } else {
             this.log('Erfolg: ' + response.headers);
-            resolve(body);
           }
         });
     });
   }
+  
+  
+//  Login() {
+//    this.log('Login call');
+//    return new Promise((resolve, reject) => {
+//      request.get(
+//          this.config['url'],
+//          {
+//            username: this.config['username'],
+//            password: this.config['password'],
+//            auth: 'digest',
+//            parse: 'xml'
+//          },
+//         (error, headers, response, body) => {
+//           if (response.statusCode === 401) {
+//            reject('NotLoggedIn');
+//          }
+//          if (error) {
+//            reject(error);
+//          } else {
+//            this.log('Erfolg: ' + response.headers);
+//            resolve(headers);
+//          }
+//        });
+//    });
+//  }
+  
 getSolvisXML() {
     this.log('getSolvisXML');
     return new Promise((resolve, reject) => {
@@ -50,12 +76,16 @@ getSolvisXML() {
           {
             parse: 'xml'
           },
-         (error, response, body) => {
+         (error, head, response, body) => {
           if (error) {
             reject(error);
+          } else if (response.statusCode === 401) {
+            Login();
           } else {
-            this.log('Erfolg: ' + response.headers);
+            this.log('Erfolg XML: ');
             resolve(body.children[0].value);
+      //      resolve(body);
+            resolve(headers);
           }
         });
     });
